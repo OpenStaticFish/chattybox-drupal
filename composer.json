@@ -1,0 +1,9 @@
+{
+  "name": "openstaticfish/chattybox-drupal",
+  "description": "ChattyBox source-cited AI chatbot module for Drupal 10 and 11.",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "drupal/core": "^10 || ^11"
+  }
+}

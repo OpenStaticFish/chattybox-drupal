@@ -12,6 +12,26 @@ Connect your Drupal site to a ChattyBox project, then let ChattyBox answer from 
 
 ## Installation
 
+### Composer
+
+For a Drupal project managed with Composer, register this GitHub repository as a VCS source and require the tagged module:
+
+```sh
+composer config repositories.chattybox-drupal vcs https://github.com/OpenStaticFish/chattybox-drupal
+composer require openstaticfish/chattybox-drupal:^0.1
+```
+
+To use the current development branch instead, require `dev-main`:
+
+```sh
+composer config repositories.chattybox-drupal vcs https://github.com/OpenStaticFish/chattybox-drupal
+composer require openstaticfish/chattybox-drupal:dev-main
+```
+
+The package is declared as a `drupal-module`, so Drupal Composer projects with the standard installer paths place it under `web/modules/contrib/`. Custom Composer projects should map the `drupal-module` package type to their module directory.
+
+### Manual
+
 1. Copy this `chattybox` directory into `web/modules/custom/` or your site's custom module directory.
 2. Enable **ChattyBox** from **Extend**, or run `drush en chattybox`.
 3. Open **Configuration > Web services > ChattyBox**.

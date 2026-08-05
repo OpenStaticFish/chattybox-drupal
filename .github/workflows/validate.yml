@@ -16,6 +16,8 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
+      - name: Validate Composer package
+        run: composer validate --strict
       - name: Check PHP syntax
         run: |
           php -l chattybox.module
