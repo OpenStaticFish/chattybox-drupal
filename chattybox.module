@@ -1,0 +1,59 @@
+<?php
+
+declare(strict_types=1);
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * The managed production endpoint used by the ChattyBox widget.
+ */
+const CHATTYBOX_WIDGET_API_URL = 'https://adorable-woodpecker-629.convex.site/chat';
+
+/**
+ * The default hosted widget loader.
+ */
+const CHATTYBOX_DEFAULT_SCRIPT_URL = 'https://chattybox.ai/widget.js';
+
+/**
+ * Implements hook_page_attachments().
+ */
+function chattybox_page_attachments(array &$attachments): void {
+  $config = \Drupal::config('chattybox.settings');
+  $api_key = trim((string) $config->get('api_key'));
+
+  if (!$config->get('enabled') || $api_key === '') {
+    return;
+  }
+
+  $request = \Drupal::request();
+  if ($request->getRequestFormat() !== 'html' || \Drupal::service('router.admin_context')->isAdminRoute()) {
+    return;
+  }
+
+  $should_load = TRUE;
+  $route_match = \Drupal::routeMatch();
+  \Drupal::moduleHandler()->alter('chattybox_load_widget', $should_load, $config, $route_match);
+
+  if (!$should_load) {
+    return;
+  }
+
+  $attachments['#attached']['library'][] = 'chattybox/widget';
+  $attachments['#attached']['drupalSettings']['chattybox'] = [
+    'apiKey' => $api_key,
+    'apiUrl' => CHATTYBOX_WIDGET_API_URL,
+    'scriptUrl' => (string) ($config->get('script_url') ?: CHATTYBOX_DEFAULT_SCRIPT_URL),
+    'locale' => (string) $config->get('locale'),
+  ];
+}
+
+/**
+ * Implements hook_help().
+ */
+function chattybox_help(string $route_name, RouteMatchInterface $route_match): ?string {
+  if ($route_name === 'help.page.chattybox') {
+    return (string) t('Configure ChattyBox at Configuration > Web services > ChattyBox.');
+  }
+
+  return NULL;
+}

@@ -1,0 +1,7 @@
+chattybox.settings:
+  path: '/admin/config/services/chattybox'
+  defaults:
+    _form: '\Drupal\chattybox\Form\ChattyBoxSettingsForm'
+    _title: 'ChattyBox'
+  requirements:
+    _permission: 'administer chattybox configuration'

@@ -1,0 +1,5 @@
+chattybox.settings:
+  title: 'ChattyBox'
+  description: 'Configure the ChattyBox widget.'
+  route_name: chattybox.settings
+  parent: system.admin_config_services

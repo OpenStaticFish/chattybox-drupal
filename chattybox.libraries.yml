@@ -1,0 +1,6 @@
+widget:
+  js:
+    js/chattybox-loader.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings

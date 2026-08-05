@@ -1,0 +1,7 @@
+name: ChattyBox
+type: module
+description: 'Adds the ChattyBox source-cited AI chatbot to public Drupal pages.'
+package: ChattyBox
+core_version_requirement: '^10 || ^11'
+php: '8.1'
+configure: chattybox.settings

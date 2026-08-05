@@ -1,0 +1,4 @@
+administer chattybox configuration:
+  title: 'Administer ChattyBox configuration'
+  description: 'Configure the ChattyBox widget and public project key.'
+  restrict access: true

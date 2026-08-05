@@ -1,0 +1,16 @@
+chattybox.settings:
+  type: config_object
+  label: 'ChattyBox settings'
+  mapping:
+    enabled:
+      type: boolean
+      label: 'Enable ChattyBox'
+    api_key:
+      type: string
+      label: 'Public widget API key'
+    script_url:
+      type: uri
+      label: 'Widget script URL'
+    locale:
+      type: string
+      label: 'Widget language override'
