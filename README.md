@@ -21,7 +21,7 @@ For a Drupal project managed with Composer, add this named VCS repository to the
   "repositories": {
     "chattybox-drupal": {
       "type": "vcs",
-      "url": "git@github.com:OpenStaticFish/chattybox-drupal.git"
+      "url": "https://github.com/OpenStaticFish/chattybox-drupal.git"
     }
   }
 }
