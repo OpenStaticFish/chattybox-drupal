@@ -2,7 +2,7 @@
 
 Add the ChattyBox source-cited AI chatbot to public Drupal pages without editing theme templates.
 
-Connect your Drupal site to a ChattyBox project, then let ChattyBox answer from your published content with links back to the source pages.
+**[Drupal setup guide](https://chattybox.ai/docs/drupal-chatbot-plugin/)** — install the module with Composer, connect your public widget key, and check that an answer links back to your Drupal content.
 
 ## Requirements
 
